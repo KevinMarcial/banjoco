@@ -1,0 +1,143 @@
+<?php
+$resultado = $conn->query("SELECT u.nombre, u.apellidos, u.correo, c.num_cuenta, c.saldo 
+                            FROM usuario u 
+                            LEFT JOIN cuenta c ON c.usuario_fk = u.usuario_pk");
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>BANJOCO - Panel Administrativo</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
+            background-image: url('fondo.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        /* Contenedor principal que divide Admin en 2 Columnas equilibradas */
+        .admin-layout {
+            display: grid;
+            grid-template-columns: 350px 1fr; /* Formulario fijo a la izquierda, tabla flexible a la derecha */
+            gap: 25px;
+            max-width: 1400px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* Tarjetas blancas flotantes con un toque transparente profesional */
+        .tarjeta-admin {
+            background: rgba(255, 255, 255, 0.96);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            height: fit-content;
+        }
+
+        /* Estilo de la tabla corporativa */
+        .tabla-bancaria {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .tabla-bancaria th {
+            background: #072146;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .tabla-bancaria td {
+            padding: 12px;
+            border-bottom: 1px solid #eef2f5;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .tabla-bancaria tr:hover {
+            background-color: #f8fafc;
+        }
+
+        .btn-accion {
+            padding: 6px 12px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav style="background: #072146; color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <div>
+            <span style="font-size: 22px; font-weight: bold; letter-spacing: 1px;">BANJOCO</span>
+            <span style="font-size: 12px; background: #48ae64; padding: 3px 8px; border-radius: 3px; margin-left: 10px; font-weight: bold;">Módulo Administrativo</span>
+        </div>
+        <div style="font-size: 14px;">
+            Admin: <strong>Juan García</strong> | <a href="logout.php" style="color: #ff6b6b; text-decoration: none; font-weight: bold; margin-left: 10px;">Salir</a>
+        </div>
+    </nav>
+
+    <div class="admin-layout">
+        
+        <div class="tarjeta-admin">
+            <h3 style="color: #072146; margin-top: 0; border-bottom: 2px solid #eef2f5; padding-bottom: 10px;">Alta de Usuarios</h3>
+            
+            <p class="instruccion" style="font-size: 13px; color: #666;">Utiliza este panel lateral para registrar nuevos clientes en el sistema central del core bancario.</p>
+            
+            <div style="margin-top: 15px;">
+                <label style="font-size: 12px; font-weight: bold; color: #444;">Área de Trabajo</label>
+                <div style="background: #f4f6f9; padding: 10px; border-radius: 4px; margin-top: 5px; font-size: 13px; color: #333;">
+                    Listo para capturar transacciones de cuentas activas.
+                </div>
+            </div>
+        </div>
+
+        <div class="tarjeta-admin" style="overflow-x: auto;">
+            <h3 style="color: #072146; margin-top: 0; margin-bottom: 20px;">Control de Cuentas y Usuarios</h3>
+            
+            <table class="tabla-bancaria">
+                <thead>
+                    <tr>
+                        <th>Titular del Cliente</th>
+                        <th>Correo Electrónico</th>
+                        <th>Número Cuenta</th>
+                        <th>Saldo Disponible</th>
+                        <th style="text-align: center;">Acciones de Control</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php while($row = $resultado->fetch_assoc()): ?>
+                    <tr>
+                        <td style="font-weight: bold;"><?php echo htmlspecialchars($row['nombre'] . " " . $row['apellidos']); ?></td>
+                        <td><?php echo htmlspecialchars($row['correo']); ?></td>
+                        <td><code><?php echo htmlspecialchars($row['num_cuenta'] ?? 'SIN ASIGNAR'); ?></code></td>
+                        <td style="color: #072146; font-weight: bold;">$<?php echo number_format($row['saldo'] ?? 0, 2); ?></td>
+                        <td style="text-align: center;">
+                            <a href="reporte.php?correo=<?php echo urlencode($row['correo']); ?>" target="_blank" class="btn-accion" style="background: #1973b8; color: white;">📄 Reporte / QR</a>
+                            <a href="index.php?eliminar=<?php echo urlencode($row['correo']); ?>" onclick="return confirm('¿Seguro que deseas dar de baja este usuario?')" class="btn-accion" style="background: #ff4d4d; color: white;">Eliminar</a>
+                        </td>
+                    </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</body>
+</html>

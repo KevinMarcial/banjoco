@@ -1,0 +1,285 @@
+:root {
+    --primary-dark: #072146; /* Color de fondo principal oscuro */
+    --primary-blue: #1973b8; /* Color azul corporativo para botones y acentos */
+    --accent-green: #000000; /* Color verde brillante secundario */
+    --accent-green-dark: #27ae60; /* Color verde oscuro para confirmaciones */
+    --card-bg: #ffffff; /* Color de fondo de las tarjetas */
+    --text-main: #000000; /* Color de texto principal */
+    --text-muted: #666666; /* Color de texto secundario atenuado */
+    --border-color: #d8d6d6; /* Color de los bordes de inputs y contenedores */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Tipografía general */
+    background: linear-gradient(rgba(7, 33, 70, 0.55), rgba(7, 33, 70, 0.55)), url('fondo.jpeg') no-repeat center center fixed; /* Fondo con degradado e imagen local fija */
+    background-size: cover; /* Ajuste de la imagen de fondo a pantalla completa */
+    color: var(--text-main); /* Color de texto predeterminado */
+    margin: 0; /* Margen exterior del cuerpo */
+    padding: 0; /* Relleno interior del cuerpo */
+    min-height: 100vh; /* Altura mínima de la ventana completa */
+}
+
+.navbar {
+    background: var(--primary-dark); /* Color de fondo de la barra de navegación */
+    color: white; /* Color de texto de la barra */
+    padding: 12px 30px; /* Relleno interno superior/inferior y lateral */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Sombra inferior de la barra */
+}
+
+.nav-contenedor {
+    display: flex; /* Distribución flexible horizontal */
+    justify-content: space-between; /* Espacio distribuido entre los extremos */
+    align-items: center; /* Alineación vertical centrada */
+    max-width: 1400px; /* Ancho máximo de la barra */
+    margin: 0 auto; /* Centrado horizontal automático */
+}
+
+.logo-area {
+    display: flex; /* Alineación flexible para el logo */
+    align-items: center; /* Centrado vertical */
+    gap: 12px; /* Separación entre elementos internos */
+}
+
+.logo {
+    font-size: 24px; /* Tamaño de fuente del logotipo */
+    font-weight: bold; /* Grosor de fuente en negrita */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    color: #e2e2e2; /* Color de texto del logotipo */
+}
+
+.badge-banca {
+    background-color: var(--accent-green-dark); /* Color de fondo de la insignia */
+    color: rgb(245, 245, 245); /* Color de texto de la insignia */
+    font-size: 11px; /* Tamaño de fuente pequeño */
+    padding: 3px 8px; /* Relleno interno de la insignia */
+    border-radius: 4px; /* Radio de borde redondeado */
+    font-weight: 600; /* Grosor semi-negrita */
+    letter-spacing: 0.5px; /* Espaciado entre caracteres */
+}
+
+.panel-contenedor {
+    max-width: 1350px; /* Ancho máximo del panel general */
+    margin: 35px auto; /* Margen superior/inferior y centrado horizontal */
+    padding: 0 20px; /* Relleno lateral de seguridad */
+    display: grid; /* Diseño en cuadrícula (Grid) */
+    grid-template-columns: 380px 1fr; /* Columnas: una fija y otra flexible */
+    gap: 25px; /* Espaciado entre columnas */
+    align-items: start; /* Alineación superior de los elementos */
+}
+
+@media (max-width: 1100px) {
+    .panel-contenedor {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas menores a 1100px */
+    }
+}
+
+.tarjeta-saldo-top {
+    background: #bcc1c7; /* Color de fondo oscuro de la tarjeta de saldo */
+    color: rgb(255, 255, 255); /* Color de texto general en la tarjeta */
+    border-radius: 12px; /* Esquinas redondeadas de la tarjeta */
+    padding: 24px; /* Relleno interno de la tarjeta */
+    box-shadow: 0 10px 25px rgba(87, 155, 245, 0.3); /* Sombra profunda tridimensional */
+    border-top: 4px solid var(--accent-green); /* Borde superior decorativo verde */
+    position: relative; /* Posicionamiento relativo para elementos internos */
+    box-sizing: border-box; /* Incluye padding en el cálculo de dimensiones */
+}
+
+.tarjeta-header-row {
+    display: flex; /* Distribución flexible para la cabecera de la tarjeta */
+    justify-content: space-between; /* Elementos hacia los extremos */
+    align-items: center; /* Alineación vertical al centro */
+    margin-bottom: 20px; /* Margen inferior de separación */
+}
+
+.banco-chip-text {
+    font-size: 12px; /* Tamaño de fuente del texto del banco */
+    font-weight: bold; /* Grosor de fuente en negrita */
+    letter-spacing: 1px; /* Espaciado de letras */
+    color: var(--accent-green); /* Color de texto verde de acento */
+}
+
+.chip-tarjeta {
+    width: 34px; /* Ancho del chip simulado */
+    height: 24px; /* Alto del chip simulado */
+    background: linear-gradient(135deg, #f4bc04 0%, #d1ed01 100%); /* Degradado metálico dorado del chip */
+    border-radius: 4px; /* Esquinas redondeadas del chip */
+    margin-bottom: 15px; /* Margen inferior */
+    box-shadow: inset 0 0 2px rgba(255, 251, 251, 0.509); /* Sombra interna de relieve */
+}
+
+.badge-debito {
+    background: rgba(64, 114, 222, 0.998); /* Fondo blanco semitransparente */
+    color: #000000; /* Color de texto  */
+    font-size: 10px; /* Tamaño de fuente diminuto */
+    padding: 3px 8px; /* Relleno interno de la etiqueta */
+    border-radius: 4px; /* Esquinas redondeadas */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    font-weight: bolder; /* Grosor en negrita */
+}
+
+.etiqueta-saldo {
+    font-size: 10px; /* Tamaño de fuente muy pequeño */
+    text-transform: uppercase; /* Transformación a mayúsculas */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    color: #000000; /* Color de texto gris claro atenuado */
+    margin: 0 0 5px 0; /* Márgenes específicos */
+}
+
+.monto-saldo {
+    font-size: 28px; /* Tamaño de fuente grande para el dinero */
+    margin: 0 0 20px 0; /* Márgenes inferior y superior */
+    font-weight: 700; /* Grosor de fuente muy fuerte */
+    letter-spacing: -0.5px; /* Ajuste de espacio entre números */
+}
+
+.info-titular-tarjeta {
+    border-top: 1px solid rgba(0, 0, 0, 0.986); /* Línea divisoria superior sutil */
+    padding-top: 15px; /* Relleno superior interno */
+    display: flex; /* Distribución flexible para los datos del titular */
+    justify-content: space-between; /* Elementos a los extremos izquierdo y derecho */
+    align-items: flex-end; /* Alineación vertical inferior */
+}
+
+.etiqueta-titular {
+    font-size: 9px; /* Tamaño de fuente diminuto */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    color: #0067f8; /* Color de texto  atenuado */
+    margin: 0 0 3px 0; /* Márgenes ajustados */
+    letter-spacing: 0.5px; /* Espaciado de letras */
+}
+
+.nombre-titular {
+    font-size: 13px; /* Tamaño de fuente del nombre del usuario */
+    font-weight: bold; /* Grosor en negrita */
+    letter-spacing: 0.5px; /* Espaciado de letras */
+    margin: 0; /* Sin márgenes predeterminados */
+    color: #080808; /* Color de texto  */
+}
+
+.num-cuenta-tarjeta {
+    font-size: 11px; /* Tamaño de fuente pequeño */
+    font-family: monospace; /* Fuente de tipo código/monoespaciada */
+    color: #043477; /* Color de texto */
+    background: rgba(255, 255, 255, 0.3); /* Fondo oscuro traslúcido */
+    padding: 3px 6px; /* Relleno interno */
+    border-radius: 4px; /* Esquinas redondeadas */
+}
+
+.btn-estado-cuenta {
+    display: block; /* Comportamiento de bloque (ocupa todo el ancho) */
+    width: 100%; /* Ancho completo del contenedor */
+    background: var(--primary-blue); /* Color de fondo azul principal */
+    color: rgb(255, 255, 255); /* Color de texto blanco */
+    text-align: center; /* Alineación de texto centrada */
+    padding: 12px; /* Relleno interno del botón */
+    border-radius: 8px; /* Esquinas redondeadas del botón */
+    text-decoration: none; /* Sin subrayado de enlace */
+    font-weight: bold; /* Grosor en negrita */
+    font-size: 13px; /* Tamaño de fuente */
+    margin-top: 15px; /* Margen superior de separación */
+    box-sizing: border-box; /* Incluye padding en el cálculo del ancho */
+    transition: background 0.3s; /* Transición suave de color de fondo */
+}
+
+.btn-estado-cuenta:hover {
+    background: #135d96; /* Color de fondo azul más oscuro al pasar el cursor */
+}
+
+.grid-cajeros {
+    display: grid; /* Cuadrícula de distribución */
+    grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+    gap: 20px; /* Espaciado entre tarjetas de formulario */
+}
+
+@media (max-width: 900px) {
+    .grid-cajeros {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas menores a 900px */
+    }
+}
+
+.tarjeta-formulario {
+    background: var(--card-bg); /* Color de fondo blanco del formulario */
+    padding: 24px; /* Relleno interno del formulario */
+    border-radius: 12px; /* Esquinas redondeadas */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Sombra suave exterior */
+    border: 1px solid var(--border-color); /* Borde sutil delimitador */
+    box-sizing: border-box; /* Incluye padding en las dimensiones */
+}
+
+.tarjeta-formulario h3 {
+    color: var(--primary-dark); /* Color de texto del título del formulario */
+    margin-top: 0; /* Sin margen superior */
+    margin-bottom: 18px; /* Margen inferior de separación */
+    font-size: 17px; /* Tamaño de fuente del título */
+    display: flex; /* Distribución flexible para icono y texto */
+    align-items: center; /* Alineación vertical centrada */
+    gap: 8px; /* Separación entre icono y título */
+}
+
+.grupo-input {
+    margin-bottom: 16px; /* Margen inferior para separar campos de entrada */
+}
+
+.grupo-input label {
+    display: block; /* Comportamiento de bloque (se coloca arriba del input) */
+    margin-bottom: 6px; /* Margen inferior entre etiqueta e input */
+    font-size: 11px; /* Tamaño de fuente pequeño para la etiqueta */
+    font-weight: 700; /* Grosor de fuente fuerte */
+    color: #475569; /* Color de texto de la etiqueta (gris oscuro formal) */
+    text-transform: uppercase; /* Transformación a mayúsculas */
+    letter-spacing: 0.5px; /* Espaciado entre letras */
+}
+
+.grupo-input input, 
+.grupo-input select {
+    width: 100%; /* Ancho completo del contenedor disponible */
+    padding: 11px 14px; /* Relleno interno para escribir cómodamente */
+    border: 1px solid #cbd5e1; /* Color y grosor del borde del input */
+    border-radius: 6px; /* Esquinas ligeramente redondeadas */
+    background: #ffffff; /* Color de fondo blanco del input */
+    font-size: 13px; /* Tamaño de fuente del texto escrito */
+    color: var(--text-main); /* Color del texto escrito */
+    box-sizing: border-box; /* Incluye padding en el cálculo del ancho */
+    transition: all 0.3s; /* Transición suave para efectos de enfoque */
+}
+
+.grupo-input input:focus, 
+.grupo-input select:focus {
+    outline: none; /* Elimina el borde de enfoque predeterminado del navegador */
+    border-color: var(--primary-blue); /* Color del borde al enfocar (azul) */
+    box-shadow: 0 0 0 3px rgba(25, 115, 184, 0.15); /* Efecto de resplandor/halo al enfocar */
+}
+
+.btn-accion {
+    width: 100%; /* Ancho completo del botón */
+    padding: 12px; /* Relleno interno vertical y horizontal */
+    border: none; /* Sin bordes predeterminados */
+    border-radius: 6px; /* Esquinas redondeadas */
+    font-size: 14px; /* Tamaño de fuente del botón */
+    font-weight: bold; /* Grosor de fuente en negrita */
+    cursor: pointer; /* Cambia el cursor a mano al pasar por encima */
+    transition: background 0.3s, transform 0.1s; /* Transición para color y efecto de clic */
+    margin-top: 5px; /* Margen superior de separación */
+}
+
+.btn-accion:active {
+    transform: scale(0.98); /* Efecto de ligera reducción al hacer clic */
+}
+
+.btn-transferir {
+    background: var(--primary-blue); /* Color de fondo azul para el botón de transferencias */
+    color: white; /* Color de texto blanco */
+}
+
+.btn-transferir:hover {
+    background: #135d96; /* Color de fondo azul más oscuro al pasar el cursor */
+}
+
+.btn-cajero {
+    background: var(--accent-green-dark); /* Color de fondo verde oscuro para cajero */
+    color: white; /* Color de texto blanco */
+}
+
+.btn-cajero:hover {
+    background: #219653; /* Color de fondo verde más claro al pasar el cursor */
+}
