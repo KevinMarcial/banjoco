@@ -22,4 +22,4 @@ Entre sus capacidades principales destaca la **generación de estados de cuenta*
 
 ## Autor
 Kevin Marcial Nicolás
-Estudiante de Ingeniería en Sistemas Computacionales · TESJo
+Ingeniería en Sistemas Computacionales · TESJo
