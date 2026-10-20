@@ -1,6 +1,6 @@
 #  BanJoco - Sistema de Banca Móvil
 
-Proyecto de software desarrollado de forma individual como parte de la formación académica en **Ingeniería en Sistemas Computacionales** en el **Tecnológico de Estudios Superiores de Jocotitlán (TESJo)**.
+Aplicación web que simula operaciones bancarias, con gestión de cuentas, movimientos financieros y distintos perfiles de usuario
 
 ##  Descripción y Funcionamiento
 BanJoco es una aplicación web diseñada para simular operaciones de banca móvil con un entorno realista y completo. El sistema cuenta con dos perfiles de acceso (**Cliente** y **Administrador**) que permiten gestionar cuentas, consultar saldos, realizar movimientos y mantener un control seguro de las transacciones financieras. 
@@ -21,4 +21,5 @@ Entre sus capacidades principales destaca la **generación de estados de cuenta*
 * **Entorno de Pruebas:** MAMP / MAMP PRO
 
 ## Autor
-* **Kevin Marcial Nicolás** – Ing. en Sistemas Computacionales 
+Kevin Marcial Nicolás
+Estudiante de Ingeniería en Sistemas Computacionales · TESJo
